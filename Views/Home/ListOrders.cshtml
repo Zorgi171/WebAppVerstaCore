@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebAppVerstaCore.Models.Order>
+
+@{
+    ViewBag.Title = "Список заказов";
+}
+
+<div>
+    <h3>Список заказов</h3>
+    <table border="1px" cellpadding="20px" cellspacing="50px">
+        <tr class="header" >
+            <th >
+           Идентификатор</th>
+            <th>
+         Город отправителя</th>
+            <th>
+          Адрес отправителя</th>
+            <th>
+           <p>Город получателя</p></th>
+            <th> <p>Адрес получателя</p></th>
+          <th><p>Вес груза</p></th>
+            <th><p>Дата забора груза</p></th>
+
+        </tr>
+        @foreach (WebAppVerstaCore.Models.Order b in Model)
+        {
+    <tr align="center">
+        
+        <td>@b.ID</td>
+       
+        <td>@b.City_Sender</td>
+       
+        <td>@b.Address_Sender</td>
+
+
+        <td><p>@b.City_Addressee</p></td>
+        <td><p>@b.Address_Addressee</p></td>
+        <td><p>@b.Weight_Cargo</p></td>
+        <td><p>@b.Fence_Date</p></td>
+
+    </tr>
+        }
+    </table>
+</div>

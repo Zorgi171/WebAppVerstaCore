@@ -1,0 +1,70 @@
+﻿@model WebAppVerstaCore.Models.Order
+@{
+    ViewBag.Title = "Новый заказ";
+
+}
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+
+<h2>Страница добавления нового заказа</h2>
+<hr />
+
+<form asp-antiforgery="true" asp-action="Create" asp-controller="Home">
+    <div>
+        
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label for="City_Sender">Город отправителя</label><br />
+            <input type="text" data-val="true" data-val-required="Не указан город отправителя" id="City_Sender" name="City_Sender" value="" />
+            <span class="field-validation-valid" data-valmsg-for="City_Sender" data-valmsg-replace="true"></span>
+        </div>
+        <div>
+            <label for="Address_Sender">Адрес отправителя</label><br />
+            <input type="text" data-val="true" data-val-required="Не указан адрес отправителя" id="Address_Sender" name="Address_Sender" value="" />
+            <span class="field-validation-valid" data-valmsg-for="Address_Sender" data-valmsg-replace="true"></span>
+        </div>
+        <div>
+            <label for="City_Addressee">Город получателя</label><br />
+            <input type="text" data-val="true" data-val-required="Не указан город получателя" id="City_Addressee" name="City_Addressee" value="" />
+            <span class="field-validation-valid" data-valmsg-for="City_Addressee" data-valmsg-replace="true"></span>
+        </div>
+        <div>
+            <label for="Address_Addressee">Адрес получателя</label><br />
+            <input type="text" data-val="true" data-val-required="Не указан адрес получателя" id="Address_Addressee" name="Address_Addressee" value="" />
+            <span class="field-validation-valid" data-valmsg-for="Address_Addressee" data-valmsg-replace="true"></span>
+        </div>
+        <div>
+            <label for="Weight_Cargo">Вес груза</label><br />
+            <input type="number" data-val="true" data-val-required="Не указан вес груза" id="Weight_Cargo" name="Weight_Cargo" value="" />
+            <span class="field-validation-valid" data-valmsg-for="Weight_Cargo" data-valmsg-replace="true"></span>
+        </div>
+        <div>
+             @Html.LabelFor(model => model.Fence_Date, "Дата забора груза")
+        <br />
+        @Html.EditorFor(model => model.Fence_Date)
+            <!--<label for="Fence_Date">Дата забора груза</label><br />
+            <input type="datetime" data-val="true" data-val-required="Не указана дата" id="Fence_Date" name="Fence_Date" value="" />
+            <span class="field-validation-valid" data-valmsg-for="Fence_Date" data-valmsg-replace="true"></span>-->
+        </div>
+        <div>
+            <hr />
+            <input type="submit" value="Добавить" class="btn btn-primary btn-lg" />
+        </div>
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/css/site.css"></script>
+}
+
+<div>
+    <p>
+        @Html.ActionLink("Вернуться к списку заказов", "ListOrders")
+    </p>
+</div>
